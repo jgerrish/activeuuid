@@ -92,7 +92,7 @@ module ActiveUUID
     extend ActiveSupport::Concern
 
     included do
-      uuids :id
+      #uuids :id
       before_create :generate_uuids_if_needed
     end
 
