@@ -6,6 +6,10 @@ module ActiveUUID
     railtie_name :activeuuid
     initializer "activeuuid.configure_rails_initialization" do
       module ActiveRecord::ConnectionAdapters
+        def self.uuid_column_types
+          { :mysql => 'binary(16)' }
+        end
+
         class TableDefinition
           def uuid (*args)
             options = args.extract_options!
